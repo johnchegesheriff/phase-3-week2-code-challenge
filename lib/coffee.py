@@ -1,6 +1,6 @@
 class Coffee:
     def __init__(self, name):
-        self.name = name
+        self.name = name  
         print(f"Created coffee: {self.name}")
     
     @property
@@ -9,14 +9,16 @@ class Coffee:
     
     @name.setter
     def name(self, new_name):
-        if not hasattr(self, "_name"):
-            if type(new_name) == str and 3 <= len(new_name):
+        if not hasattr(self, "_name"):  
+            if isinstance(new_name, str) and len(new_name) >= 3:
                 self._name = new_name
             else:
-                raise ValueError("Name must be 3 or more characters")
+                raise ValueError("Name must be a string with 3 or more characters.")
+        else:
+            raise AttributeError("Name cannot be changed once set.")
     
     def orders(self):
-        
+        from order import Order  
         orders_for_coffee = [order for order in Order.all if order.coffee == self]
         print(f"Orders for {self.name}: {orders_for_coffee}")
         return orders_for_coffee
@@ -32,10 +34,11 @@ class Coffee:
         return num
     
     def average_price(self):
-        if self.num_orders() == 0:
+        orders_for_coffee = self.orders()  
+        if not orders_for_coffee:
             print(f"No orders for {self.name}, so average price is 0.")
             return 0
-        sum_prices = sum([order.price for order in self.orders()], 0)
-        avg_price = sum_prices / self.num_orders()
+        sum_prices = sum(order.price for order in orders_for_coffee)
+        avg_price = sum_prices / len(orders_for_coffee)
         print(f"Average price for {self.name}: {avg_price}")
         return avg_price

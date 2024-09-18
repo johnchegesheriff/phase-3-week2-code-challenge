@@ -4,30 +4,31 @@ from customer import Customer
 
 if __name__ == "__main__":
 
+    
     espresso = Coffee("Espresso")
-    latte = Coffee("cappucino")
-
-   
-    john = Customer("John")
-    jane = Customer("Jane")
+    latte = Coffee("Cappuccino")  
 
     
-    john_order = john.create_order(espresso, 5.0)
-    jane_order = jane.create_order(latte, 4.5)
+    john = Customer("John")
+    bob = Customer("bob")
 
-    # Testing Coffee methods
-    espresso.orders()
-    espresso.customers()
-    espresso.num_orders()
-    espresso.average_price()
+    
+    john_order = john.create_order(espresso, 5.0)  
+    bob_order = bob.create_order(latte, 4.5)
 
-    latte.orders()
-    latte.customers()
-    latte.num_orders()
-    latte.average_price()
+    
+    espresso.orders()         
+    espresso.customers()      
+    espresso.num_orders()     
+    espresso.average_price() 
 
-    # Testing Customer methods
-    john.orders()
-    john.coffees()
-    jane.orders()
-    jane.coffees()
+    latte.orders()           
+    latte.customers()         
+    latte.num_orders()       
+    latte.average_price()     
+
+   
+    john.orders()   
+    john.coffees()  
+    bob.orders()   
+    bob.coffees()  
