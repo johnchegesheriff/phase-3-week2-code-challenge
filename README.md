@@ -1,9 +1,12 @@
 # phase-3-week2-code-challenge
 
 # repository setup
-1.Navigate to github on your browser 
+1.Navigate to github on your browser.
+
 2.fork this repository to you github account.
+
 3.clone this repository to your local environment using the insturctions below.
+
 open a folder where you would like to store the repository and use git clone (name of you repository in github).
 
 change directory to the cloned repository using cd (name of you repository in github).
